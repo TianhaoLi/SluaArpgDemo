@@ -101,7 +101,7 @@ void Fslua_profileModule::ShutdownModule()
 
 void Fslua_profileModule::PluginButtonClicked()
 {
-	FGlobalTabmanager::Get()->InvokeTab(slua_profileTabName);
+	FGlobalTabmanager::Get()->TryInvokeTab(slua_profileTabName);
 }
 
 bool Fslua_profileModule::Tick(float DeltaTime)
