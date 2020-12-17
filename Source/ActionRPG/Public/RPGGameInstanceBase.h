@@ -89,11 +89,15 @@ public:
 
 	/** virtual function to allow custom GameInstances an opportunity to set up what it needs */
 	virtual void Init() override;
+
 	/** virtual function to allow custom GameInstances an opportunity to do cleanup when shutting down */
 	virtual void Shutdown() override;
 
 	UFUNCTION()
 	void LuaStateInitCallback();
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void InitGameItems();
 
 	// create global state, freed on app exit
 	NS_SLUA::LuaState state;

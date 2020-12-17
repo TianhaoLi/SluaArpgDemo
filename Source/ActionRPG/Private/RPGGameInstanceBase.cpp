@@ -178,6 +178,8 @@ void URPGGameInstanceBase::Init()
 
 		return MoveTemp(Content);
 		});
+
+	InitGameItems();
 }
 
 void URPGGameInstanceBase::Shutdown()
