@@ -3,6 +3,7 @@
 #pragma once
 
 #include "ActionRPG.h"
+#include "slua.h"
 #include "Engine/GameInstance.h"
 #include "RPGGameInstanceBase.generated.h"
 
@@ -85,6 +86,17 @@ public:
 	/** Resets the current save game to it's default. This will erase player data! This won't save to disk until the next WriteSaveGame */
 	UFUNCTION(BlueprintCallable, Category = Save)
 	void ResetSaveGame();
+
+	/** virtual function to allow custom GameInstances an opportunity to set up what it needs */
+	virtual void Init() override;
+	/** virtual function to allow custom GameInstances an opportunity to do cleanup when shutting down */
+	virtual void Shutdown() override;
+
+	UFUNCTION()
+	void LuaStateInitCallback();
+
+	// create global state, freed on app exit
+	NS_SLUA::LuaState state;
 
 protected:
 	/** The current save game object */

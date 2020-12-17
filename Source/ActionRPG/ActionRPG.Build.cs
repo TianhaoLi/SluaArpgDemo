@@ -38,7 +38,7 @@ public class ActionRPG : ModuleRules
 				"ActionRPGLoadingScreen",
 				//"Slate",
 				//"SlateCore",
-				//"InputCore",
+				"InputCore",
 				"MoviePlayer",
 				"GameplayAbilities",
 				"GameplayTags",
