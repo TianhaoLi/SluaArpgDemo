@@ -9,20 +9,36 @@ public class ActionRPG : ModuleRules
 	{
 		PrivatePCHHeaderFile = "Public/ActionRPG.h";
 
-		PublicDependencyModuleNames.AddRange(
-			new string[] {
-				"Core",
-				"CoreUObject",
-				"Engine"
-			}
-		);
+		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 
-		PrivateDependencyModuleNames.AddRange(
+        PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "Http" });
+
+        PrivateDependencyModuleNames.AddRange(new string[] { "slua_unreal", "slua_profile", "Slate", "SlateCore", "UMG", "Http" });
+
+        PrivateIncludePathModuleNames.AddRange(new string[] { "slua_unreal" });
+        PublicIncludePathModuleNames.AddRange(new string[] { "slua_unreal", "slua_profile" });
+
+#if UE_4_21_OR_LATER
+        PublicDefinitions.Add("ENABLE_PROFILER");
+#else
+        Definitions.Add("ENABLE_PROFILER");
+#endif
+
+
+        //PublicDependencyModuleNames.AddRange(
+        //    new string[] {
+        //        "Core",
+        //        "CoreUObject",
+        //        "Engine"
+        //    }
+        //);
+
+        PrivateDependencyModuleNames.AddRange(
 			new string[] {
 				"ActionRPGLoadingScreen",
-				"Slate",
-				"SlateCore",
-				"InputCore",
+				//"Slate",
+				//"SlateCore",
+				//"InputCore",
 				"MoviePlayer",
 				"GameplayAbilities",
 				"GameplayTags",
