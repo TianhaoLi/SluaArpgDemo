@@ -8,3 +8,4 @@ Build
 DerivedDataCache
 .sln
 *.sln
+Content/Lua/.vscode/

@@ -10,6 +10,7 @@
 #include "Abilities/RPGAbilitySystemComponent.h"
 #include "Abilities/RPGAttributeSet.h"
 #include "GenericTeamAgentInterface.h"
+#include "LuaActor.h"
 #include "RPGCharacterBase.generated.h"
 
 class URPGGameplayAbility;
@@ -17,7 +18,7 @@ class UGameplayEffect;
 
 /** Base class for Character, Designed to be blueprinted */
 UCLASS()
-class ACTIONRPG_API ARPGCharacterBase : public ACharacter, public IAbilitySystemInterface, public IGenericTeamAgentInterface
+class ACTIONRPG_API ARPGCharacterBase : public ALuaCharacter, public IAbilitySystemInterface, public IGenericTeamAgentInterface
 {
 	GENERATED_BODY()
 

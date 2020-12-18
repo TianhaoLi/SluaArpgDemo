@@ -1,6 +1,6 @@
 
 local actor={}
-
+require("LuaPanda").start("127.0.0.1",8818)
 -- override event from blueprint
 function actor:ReceiveBeginPlay()
     self.bCanEverTick = true
