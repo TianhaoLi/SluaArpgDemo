@@ -32,6 +32,10 @@ function Common.GetPlayerCameraManager(tbl)
     return gameplay.GetPlayerCameraManager(tbl:GetWorld(), 0)
 end
 
+function Common.GetGameMode(tbl)
+    local gameMode = import "GameplayStatics"
+    return gameMode.GetGameMode(tbl:GetWorld(), 0)
+end
 
 
 return common
