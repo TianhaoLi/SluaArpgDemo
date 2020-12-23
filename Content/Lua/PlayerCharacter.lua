@@ -84,6 +84,8 @@ end
 
 --When Rolling Button is clicked
 function player:DoRoll()
+    player:UseEquippedPotion()
+
     if self:CanUseAnyAbility() then
         if player:IsChangingDir() then
             --蓝图中的SetActorRotation 实际上是K2_SetActorRotation
@@ -105,6 +107,21 @@ function player:IsChangingDir()
         return true
     else
         return false
+    end
+end
+
+--Actual Potion effect and cost will be conducted by GameplayEffect that is called by the AnimNotify in PotionMontage
+function player:UseEquippedPotion()
+    -- local ItemSlot = slua.loadObject("RPGItemSlot'/Script/ActionRPG.RPGItemSlot'")
+    local slot = self["Potion"]
+    self:ActivateAbilitiesWithItemSlot(slot,false)
+end
+
+--When 'Change Weapon' is called
+
+function player:SwitchWeapon()
+    if self:GetCurrentMontage() == nil then
+        self:AttachNextWeapon()
     end
 end
 
